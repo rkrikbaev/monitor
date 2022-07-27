@@ -1,0 +1,12 @@
+[Unit]
+Description=Metricsmonitoring client
+After=network.target
+
+[Service]
+WorkingDirectory=/usr/local/monitor
+ExecStart=python3 /usr/local/monitor/client.py premix white 10 >/dev/null 2>&1 &
+Restart=on-abort
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
