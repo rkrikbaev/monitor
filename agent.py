@@ -26,13 +26,13 @@ while True:
         cpu_count=psutil.cpu_count()
         cpu_times_per=psutil.cpu_times_percent()
         # gives an object with many fields
-        psutil.virtual_memory()
+        # psutil.virtual_memory()
         # you can convert that object to a dictionary
         virtual_memory= dict(psutil.virtual_memory()._asdict())
         # you can have the percentage of used RAM
         mem_used_percent= psutil.virtual_memory().percent
         # you can calculate percentage of available memory
-        mem_avail_per= psutil.virtual_memory().available * 100 / psutil.virtual_memory().total
+        mem_avail_percent= psutil.virtual_memory().available * 100 / psutil.virtual_memory().total
         mem_total=psutil.virtual_memory().total
         
         payload = json.dumps(
@@ -40,7 +40,8 @@ while True:
             "cpu_percent": cpu_percent, 
             "mem_used_percent":mem_used_percent,
             "mem_avail_percent":mem_avail_percent,
-            "mem_total":mem_total
+            "mem_total":mem_total,
+            "ts": time.time.time_ns()
             })
 
         url=f'http://207.154.236.186:9000/rest/api/{company}/{unit_name}'
