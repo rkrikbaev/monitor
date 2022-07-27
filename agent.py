@@ -39,7 +39,7 @@ while True:
             {
             "cpu_percent": cpu_percent, 
             "mem_used_percent":mem_used_percent,
-            "mem_avail_percent":mem_avail_per,
+            "mem_avail_percent":mem_avail_percent,
             "mem_total":mem_total
             })
 
