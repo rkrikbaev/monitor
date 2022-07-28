@@ -1,0 +1,13 @@
+[Unit]
+Description= Tiger VNC Server service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=user
+
+ExecStart=/bin/bash /home/user/x0vncserver.sh start
+ExecStop=/bin/bash /home/user/x0vncserver.sh stop
+
+[Install]
+WantedBy=multi-user.target

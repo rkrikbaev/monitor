@@ -1,0 +1,12 @@
+[Unit]
+Description=Firefox in kiosk mode
+After=network.target start_firefox
+BindsTo=start_firefox
+
+[Service]
+ExecStart=firefox —kiosk http://127.0.0.1:9000/fp/unit
+Restart=on-abort
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
