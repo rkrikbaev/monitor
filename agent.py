@@ -2,6 +2,7 @@
 import psutil
 import requests
 import time, json, sys
+import subprocess
 
 # # gives a single float value
 # psutil.cpu_percent()
@@ -41,7 +42,7 @@ while True:
             "mem_used_percent":mem_used_percent,
             "mem_avail_percent":mem_avail_percent,
             "mem_total":mem_total,
-            "ts": time.time.time_ns()
+            "ts": time.time_ns()
             })
 
         url=f'http://207.154.236.186:9000/rest/api/{company}/{unit_name}'
