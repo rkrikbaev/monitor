@@ -2,20 +2,6 @@
 import psutil
 import requests
 import time, json, sys
-import subprocess
-
-# # gives a single float value
-# psutil.cpu_percent()
-# # gives an object with many fields
-# psutil.virtual_memory()
-# # you can convert that object to a dictionary 
-# dict(psutil.virtual_memory()._asdict())
-# # you can have the percentage of used RAM
-# psutil.virtual_memory().percent
-# 79.2
-# # you can calculate percentage of available memory
-# psutil.virtual_memory().available * 100 / psutil.virtual_memory().total
-# 20.8
 
 company = sys.argv[1]
 unit_name = sys.argv[2]
@@ -38,9 +24,8 @@ while True:
         
         payload = json.dumps(
             {
-            "cpu_percent": cpu_percent, 
+            "cpu_percent": cpu_percent,
             "mem_used_percent":mem_used_percent,
-            "mem_avail_percent":mem_avail_percent,
             "mem_total":mem_total,
             "ts": time.time_ns()
             })
@@ -48,10 +33,7 @@ while True:
         url=f'http://207.154.236.186:9000/rest/api/{company}/{unit_name}'
         
         try:
-                print(payload)
                 r=requests.post(url=url,data=payload)
-                print(r.status_code)
-        except Exception as exc:
-                print(exc)
-        
+        except:
+                continue
         time.sleep(int(time_sleep))
