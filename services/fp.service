@@ -1,0 +1,16 @@
+[Unit]
+Description=Faceplate service
+
+[Service]
+LimitNOFILE=200000
+WorkingDirectory=/home/user/faceplate
+Type=simple
+Environment="HOME=/home/user/faceplate"
+RemainAfterExit=true
+ExecStart=/bin/bash /home/user/faceplate/bin/faceplate foreground
+ExecStop=/bin/bash /home/user/faceplate/bin/faceplate stop
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
