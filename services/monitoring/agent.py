@@ -113,8 +113,8 @@ if __name__ == "__main__":
                 asset = sys.argv[2]
                 time_sleep = sys.argv[3]
         except:
-                company = 'premix'
-                asset = 'white'
+                company = 'test_company'
+                asset = 'test_line'
                 time_sleep = 10
 
         list_of_processes = [('beam.smp','faceplate'), ('firefox','browser')]
