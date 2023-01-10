@@ -76,6 +76,7 @@ def main(list_of_processes, url, time_sleep):
                 cpu_percent= psutil.cpu_percent()
                 cpu_count=psutil.cpu_count()
                 cpu_times_per=psutil.cpu_times_percent()
+                cpu_load_avg=psutil.getloadavg()
                 # gives an object with many fields
                 # psutil.virtual_memory()
                 # you can convert that object to a dictionary
@@ -90,6 +91,7 @@ def main(list_of_processes, url, time_sleep):
                 payload = json.dumps(
                 {
                 "cpu_percent": int(cpu_percent),
+                "cpu_avg": str(cpu_load_avg),
                 "mem_used_percent": int(mem_used_percent),
                 "ts": time.time_ns(),
                 "delay": int(elapsed_total_seconds*1000),
