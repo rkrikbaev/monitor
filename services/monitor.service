@@ -1,5 +1,5 @@
 [Unit]
-Description=Metricsmonitoring client
+Description=Metrics monitoring client
 After=network.target
 
 [Service]
